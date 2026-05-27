@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="tpch"
+  DTS:DTSID="{DE4DED76-85C9-4F43-80DA-F0C292A21AD2}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="User ID=sa;Initial Catalog=tpch;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-TPCH-SSIS-{DE4DED76-85C9-4F43-80DA-F0C292A21AD2}.sa1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFebjpZgWckaxry4Hr8vuCwAAAAACAAAAAAAQZgAAAAEAACAAAADTIP5yQP5tlPh8QKKiR3DfQTsK5qPBF29LKqhZ7sn4DAAAAAAOgAAAAAIAACAAAABnHshgGf1oQso9kAagRhZC8mDryTjzsU11v16zKmsqgYAAAAB1CLkhXP9vlnDVPWtmxFdVOJ3gttGFLz9Jy4wtOneHT6DSYNnUrhjQUmEh5CKvZApkz3+4gRm/pEwA6+EAe+Ol5z6X5YhHKhhLgu7V8PXKQzzlz8F3ETzk06VokNNengedGWEZQf1Bhf1iiKXVo9hxRf5rWL5loX8DVkV0aZxa3EAAAACCIp7BgqnY6GR9VbryVs+e+VImhH6Uy7AKOBqur1rl8f5JV5GEgLUXFafC+Xr9PtUPp8PnfehP1zzqEIN89CKN</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="60"
-  DTS:VersionGUID="{7C661057-8F68-46A5-8769-EFE55EE396DB}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{2708B4E5-18C6-4FDC-9A0A-6C2938FEB567}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -1828,22 +1828,22 @@ JOIN Region r ON n.RegionKey  = r.RegionKey;</property>
 
        l.quantity AS Quantity,
        l.extendedprice AS SalesValue,
-       l.extendedprice * l.discount AS Discount,
-       l.extendedprice * ( 1 - l.discount ) AS NetRevenue,
-       l.quantity * ps.supplycost AS Cost,
-       ( l.extendedprice * ( 1 - l.discount ) ) - ( l.quantity * ps.supplycost ) AS Profit
+       ROUND(l.extendedprice * l.discount, 2) AS DiscountAmount,
+       ROUND(l.extendedprice * ( 1 - l.discount ), 2) AS NetRevenue,
+       ROUND(l.quantity * ps.supplycost, 2) AS Cost,
+       ROUND(( l.extendedprice * ( 1 - l.discount ) ) - ( l.quantity * ps.supplycost ), 2) AS Profit
 FROM   lineitem l
 INNER JOIN orders o
-         ON o.orderkey = l.orderkey
-INNER JOIN .customer c
-        ON c.customerkey = o.customerkey
+       ON o.orderkey = l.orderkey
+INNER JOIN customer c
+       ON c.customerkey = o.customerkey
 INNER JOIN part p
-        ON p.partkey = l.partkey
+       ON p.partkey = l.partkey
 INNER JOIN partSupp ps
-        ON ps.partkey = l.partkey
+       ON ps.partkey = l.partkey
            AND ps.SupplierKey = l.SupplierKey
 INNER JOIN supplier sup
-         ON sup.SupplierKey = ps.SupplierKey</property>
+       ON sup.SupplierKey = ps.SupplierKey</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1971,13 +1971,13 @@ INNER JOIN supplier sup
                       name="OrderDate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].Columns[Discount]"
+                      refId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].Columns[DiscountAmount]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
-                      lineageId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].Columns[Discount]"
-                      name="Discount"
+                      externalMetadataColumnId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].ExternalColumns[DiscountAmount]"
+                      lineageId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].Columns[DiscountAmount]"
+                      name="DiscountAmount"
                       precision="31"
                       scale="4"
                       truncationRowDisposition="FailComponent" />
@@ -2031,9 +2031,9 @@ INNER JOIN supplier sup
                       dataType="i4"
                       name="OrderDate" />
                     <externalMetadataColumn
-                      refId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
+                      refId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].ExternalColumns[DiscountAmount]"
                       dataType="numeric"
-                      name="Discount"
+                      name="DiscountAmount"
                       precision="31"
                       scale="4" />
                   </externalMetadataColumns>
@@ -2078,10 +2078,10 @@ INNER JOIN supplier sup
                       precision="15"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Error Output].Columns[Discount]"
+                      refId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Error Output].Columns[DiscountAmount]"
                       dataType="numeric"
-                      lineageId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Error Output].Columns[Discount]"
-                      name="Discount"
+                      lineageId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Error Output].Columns[DiscountAmount]"
+                      name="DiscountAmount"
                       precision="31"
                       scale="4" />
                     <outputColumn
@@ -2226,7 +2226,7 @@ where [refTable].[SourceCustomerKey] = ?</property>
                 <output
                   refId="Package\Fill FactSales\LookupDimClient.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Fill FactSales\LookupDimClient.Inputs[Lookup Input]">
@@ -2384,7 +2384,7 @@ where [refTable].[DateKey] = ?</property>
                 <output
                   refId="Package\Fill FactSales\LookupDimDate.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Fill FactSales\LookupDimDate.Inputs[Lookup Input]">
@@ -2542,7 +2542,7 @@ where [refTable].[SourcePartKey] = ?</property>
                 <output
                   refId="Package\Fill FactSales\LookupDimProduct.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Fill FactSales\LookupDimProduct.Inputs[Lookup Input]">
@@ -2700,7 +2700,7 @@ where [refTable].[SourceSupplierKey] = ?</property>
                 <output
                   refId="Package\Fill FactSales\LookupDimSupplier.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Fill FactSales\LookupDimSupplier.Inputs[Lookup Input]">
@@ -2822,7 +2822,7 @@ where [refTable].[SourceSupplierKey] = ?</property>
                 <input
                   refId="Package\Fill FactSales\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
@@ -2859,14 +2859,6 @@ where [refTable].[SourceSupplierKey] = ?</property>
                       externalMetadataColumnId="Package\Fill FactSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Profit]"
                       lineageId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].Columns[Profit]" />
                     <inputColumn
-                      refId="Package\Fill FactSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Discount]"
-                      cachedDataType="numeric"
-                      cachedName="Discount"
-                      cachedPrecision="31"
-                      cachedScale="4"
-                      externalMetadataColumnId="Package\Fill FactSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
-                      lineageId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].Columns[Discount]" />
-                    <inputColumn
                       refId="Package\Fill FactSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LockupClientKey]"
                       cachedDataType="i4"
                       cachedName="LockupClientKey"
@@ -2898,6 +2890,14 @@ where [refTable].[SourceSupplierKey] = ?</property>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Fill FactSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QuantitySold]"
                       lineageId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Fill FactSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DiscountAmount]"
+                      cachedDataType="numeric"
+                      cachedName="DiscountAmount"
+                      cachedPrecision="31"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Fill FactSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
+                      lineageId="Package\Fill FactSales\GetSales.Outputs[OLE DB Source Output].Columns[DiscountAmount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3093,15 +3093,15 @@ where [refTable].[SourceSupplierKey] = ?</property>
     design-time-name="Package\Fill Dimension Tables\Fill DimClient">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Fill Dimension Tables\Fill DimClient\OLE DB Destination"
-          TopLeft="75,178" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150,42"
           Id="Package\Fill Dimension Tables\Fill DimClient\OLE DB Source"
           TopLeft="82,51" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Fill Dimension Tables\Fill DimClient\OLE DB Destination"
+          TopLeft="75,178" />
         <EdgeLayout
           Id="Package\Fill Dimension Tables\Fill DimClient.Paths[OLE DB Source Output]"
           TopLeft="158.75,93">
@@ -3121,7 +3121,9 @@ where [refTable].[SourceSupplierKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3152,7 +3154,7 @@ where [refTable].[SourceSupplierKey] = ?</property>
     design-time-name="Package\Fill Dimension Tables\Fill DimDate">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="137,42"
           Id="Package\Fill Dimension Tables\Fill DimDate\OrderDate 1"
@@ -3184,7 +3186,9 @@ where [refTable].[SourceSupplierKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3206,7 +3210,9 @@ where [refTable].[SourceSupplierKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3237,15 +3243,15 @@ where [refTable].[SourceSupplierKey] = ?</property>
     design-time-name="Package\Fill Dimension Tables\Fill DimProduct">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Fill Dimension Tables\Fill DimProduct\OLE DB Source"
-          TopLeft="171,119" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Fill Dimension Tables\Fill DimProduct\OLE DB Destination"
           TopLeft="158,258" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Fill Dimension Tables\Fill DimProduct\OLE DB Source"
+          TopLeft="171,119" />
         <EdgeLayout
           Id="Package\Fill Dimension Tables\Fill DimProduct.Paths[OLE DB Source Output]"
           TopLeft="244.75,161">
@@ -3265,7 +3271,9 @@ where [refTable].[SourceSupplierKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3301,15 +3309,15 @@ where [refTable].[SourceSupplierKey] = ?</property>
     design-time-name="Package\Fill Dimension Tables\Fill DimSupplier">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Fill Dimension Tables\Fill DimSupplier\OLE DB Source"
-          TopLeft="151,123" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Fill Dimension Tables\Fill DimSupplier\OLE DB Destination"
           TopLeft="140,259" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Fill Dimension Tables\Fill DimSupplier\OLE DB Source"
+          TopLeft="151,123" />
         <EdgeLayout
           Id="Package\Fill Dimension Tables\Fill DimSupplier.Paths[OLE DB Source Output]"
           TopLeft="225.75,165">
@@ -3329,7 +3337,9 @@ where [refTable].[SourceSupplierKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3362,18 +3372,6 @@ where [refTable].[SourceSupplierKey] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="158,42"
-          Id="Package\Fill FactSales\LookupDimClient"
-          TopLeft="308,167" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Fill FactSales\LookupDimProduct"
-          TopLeft="316,367" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Fill FactSales\OLE DB Destination"
-          TopLeft="311,550" />
-        <NodeLayout
           Size="154,42"
           Id="Package\Fill FactSales\LookupDimDate"
           TopLeft="317,262" />
@@ -3385,6 +3383,64 @@ where [refTable].[SourceSupplierKey] = ?</property>
           Size="120,42"
           Id="Package\Fill FactSales\GetSales"
           TopLeft="329,57" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Fill FactSales\LookupDimClient"
+          TopLeft="308,167" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Fill FactSales\LookupDimProduct"
+          TopLeft="316,367" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Fill FactSales\OLE DB Destination"
+          TopLeft="309,548.75" />
+        <EdgeLayout
+          Id="Package\Fill FactSales.Paths[OLE DB Source Output]"
+          TopLeft="388,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill FactSales.Paths[Lookup Match Output2]"
+          TopLeft="396.5,409">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Fill FactSales.Paths[Lookup Match Output1]"
           TopLeft="397,304">
@@ -3434,72 +3490,26 @@ where [refTable].[SourceSupplierKey] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fill FactSales.Paths[OLE DB Source Output]"
-          TopLeft="388,99">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68"
-              Start="0,0"
-              End="0,60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Fill FactSales.Paths[Lookup Match Output3]"
-          TopLeft="394.75,502">
+          TopLeft="393.75,502">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48"
+              EndConnector="0,46.75"
               Start="0,0"
-              End="0,40.5">
+              End="0,39.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.5" />
+                    End="0,39.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,14.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fill FactSales.Paths[Lookup Match Output2]"
-          TopLeft="396.5,409">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,15.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,13.8203125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3507,12 +3517,66 @@ where [refTable].[SourceSupplierKey] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Fill FactSales\LookupDimDate">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill FactSales\LookupDimSupplier">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimSupplier]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill FactSales\GetSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Fill FactSales\LookupDimClient">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3535,7 +3599,7 @@ where [refTable].[SourceSupplierKey] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3562,60 +3626,6 @@ where [refTable].[SourceSupplierKey] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fill FactSales\LookupDimDate">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fill FactSales\LookupDimSupplier">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimSupplier]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fill FactSales\GetSales">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

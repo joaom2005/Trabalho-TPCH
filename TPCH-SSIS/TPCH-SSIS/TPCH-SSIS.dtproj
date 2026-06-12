@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-VAE28NJG</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFebjpZgWckaxry4Hr8vuCwAAAAACAAAAAAAQZgAAAAEAACAAAACMeaIoezU3R0M0zCR1gEcsXN1uMUHOGWDAX/94ucYVqAAAAAAOgAAAAAIAACAAAAAS94oSfhUQWUv3fGv0pKj6nGkonz08sqVgV0EdRcXTwJAAAAB+6S4lll49akRnO8mqMkaS33bFsJavDUadfW3ak0WbhGRNfXiWSe4GSg9Ic2j+h3GyaKO6/qE5iylm9V27ByqqdCF9zxoUYpgmh4SFbEbia4SqM2EeguqJvIL/4oX72SjXeYxmfS0JhGmq6uIxeehp1Ejc5Jc0ny3rgex/nQKsGrLtrJnY/K/h0R23qFgR0+lAAAAAxY4XRGhBYG25drQAlMkSqMtcF/nUdiJVpP1e111ZgZXPcbgNDMmHoxND7z6ZTJPSdE+W7MRImjqmS7wTcK4vRg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkbHieweBgkKLAXl+p89w4QAAAAACAAAAAAAQZgAAAAEAACAAAADw8WOAuXm8DHukD+oRVeCZobICASD86XuTDJmoWNoKuAAAAAAOgAAAAAIAACAAAACZrZoKiNgE1xwiy0IwogHy+1T4sDuZNfnqyC+VhvyM85AAAABLhUboBsjTBXA1Cqh1XdERtObgJuiPDSV+PoT+RCxtVv8c6vwChThJ1TJHDn6UFIuE/FfAecymTf767QkddewHSbMB8yASFgSDQKqgoAdDwsv4EwVF5rcKH6I2Ku+22BU9o5HOwQSXt0O/ff4CGmJZcHH41Ga/MmytYBd784jAJQ5mMk9O+bgqiJGGe8cYHd1AAAAA1FguajvjCRLdjscpAGiGTj8Na0Ssmp0Hky0Cws2H/Dfiwg25Ex6GExWtSn2Nm/3aXMEEwMyPSY3ExS5UjLgBOw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -64,7 +64,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">User ID=sa;Initial Catalog=tpch;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-TPCH-SSIS-{DE4DED76-85C9-4F43-80DA-F0C292A21AD2}.sa1;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">User ID=sa;Initial Catalog=tpch;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-TPCH-SSIS-{DE4DED76-85C9-4F43-80DA-F0C292A21AD2}.sa1;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -212,7 +212,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">User ID=sa;Initial Catalog=tpchDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-TPCH-SSIS-{2F9625EC-238B-4062-9C7B-542D2907CB41}.sa2;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">User ID=sa;Initial Catalog=tpchDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-TPCH-SSIS-{2F9625EC-238B-4062-9C7B-542D2907CB41}.sa2;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>

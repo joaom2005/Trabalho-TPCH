@@ -1,4 +1,4 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="59caf957-62a1-4d22-83fd-b995d939cd33" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e16d7d3a-9db5-4659-954a-16b72ebbb2e7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Tpch DW</ID>
   <Name>TPCH</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -189,121 +189,121 @@
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
   <Dimensions>
-    <Dimension dwd:design-time-name="3c84e6e0-2555-4249-9198-20ae32ef1630">
+    <Dimension dwd:design-time-name="8429d348-cd85-4843-9c2a-8998d36ee85a">
       <ID>Fact Sales</ID>
       <Name>Fact Sales</Name>
       <DimensionID>Fact Sales</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="34644096-74cf-4817-9ee3-672136d060c0">
+        <Attribute dwd:design-time-name="391807eb-f230-4ea1-bc8d-fa2aaef22fd5">
           <AttributeID>Sales Key</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
-    <Dimension dwd:design-time-name="07e9401a-2eee-496a-b056-ac279c41712f">
+    <Dimension dwd:design-time-name="f5519dbf-cc84-4d4a-b99a-9fd5349a00f6">
       <ID>Dim Date</ID>
       <Name>Dim Date</Name>
       <DimensionID>Dim Date</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="e1a90e4f-e4ff-4b4d-8734-f29f99d47f34">
+        <Attribute dwd:design-time-name="1064891e-232f-46ae-893c-4602b416eb65">
           <AttributeID>Date Key</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="9be621f2-ab4c-4b1a-b603-e6db19b8050e">
+        <Attribute dwd:design-time-name="11f4497d-7ac2-477a-8908-b10902ae3b78">
           <AttributeID>Month</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="e3ab3771-fbca-4aa4-8d51-df14a52c4565">
+        <Attribute dwd:design-time-name="e57ba565-5afa-453e-9d80-08cf73584c3e">
           <AttributeID>Year</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="2e296e01-bc59-4f00-8b39-1eb414ee792f">
+        <Attribute dwd:design-time-name="8afad0e0-e1cc-4810-a132-0362b7477aa7">
           <AttributeID>Day</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="f9665f1f-e4f9-47d4-8cc5-d0485044360d">
+        <Attribute dwd:design-time-name="6e5f338f-c13f-4351-baf0-93be571d78ab">
           <AttributeID>Quarter</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="f451eb7a-430c-40ed-85c4-6690c094f68e">
+        <Hierarchy dwd:design-time-name="563dac32-a9d5-4147-b5ab-19436ccad980">
           <HierarchyID>Hierarchy</HierarchyID>
         </Hierarchy>
       </Hierarchies>
     </Dimension>
-    <Dimension dwd:design-time-name="6ce5fc70-06df-4218-9fda-2532f7d0bdb6">
+    <Dimension dwd:design-time-name="88e555ac-0952-4225-9b05-22ab78d1d839">
       <ID>Dim Product</ID>
       <Name>Dim Product</Name>
       <DimensionID>Dim Product</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="7b107823-6431-44e4-ab89-7d66d0d437cc">
+        <Attribute dwd:design-time-name="aff67d55-1f36-449c-a451-087c48bb8a41">
           <AttributeID>Product Key</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="dffbcc19-dd03-4127-9646-1efbd81b8f01">
+        <Attribute dwd:design-time-name="5ccd0d06-d136-40ed-be7e-d3e694aca9c7">
           <AttributeID>Product</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="332c6874-bfd1-4968-bbf5-b42658cbed18">
+        <Attribute dwd:design-time-name="ac2e76b5-1eb6-4acc-953f-de92b2d7d84f">
           <AttributeID>Type</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="d3ee467f-f941-4591-a9b3-cd3915242a9d">
+        <Attribute dwd:design-time-name="ada92b10-16b8-45d0-84b7-7aa5950609c8">
           <AttributeID>Brand</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="6d7f3fb7-3246-48eb-80e9-85e349b8f7b6">
+        <Hierarchy dwd:design-time-name="db3ab59a-fe3c-482d-96aa-01bd7a88d140">
           <HierarchyID>Hierarchy</HierarchyID>
         </Hierarchy>
       </Hierarchies>
     </Dimension>
-    <Dimension dwd:design-time-name="dfcc2766-a694-40ce-a0a3-16727efd4ba8">
+    <Dimension dwd:design-time-name="61fc0cb8-bb09-424f-b74e-b02fd81890d7">
       <ID>Dim Supplier</ID>
       <Name>Dim Supplier</Name>
       <DimensionID>Dim Supplier</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="c869c0fc-3968-4530-b9ac-3e42728449bf">
+        <Attribute dwd:design-time-name="b61f9052-ca32-4c4d-b4ab-0deb7f0e3497">
           <AttributeID>Supplier Key</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="8128f6ed-c736-4d01-ba2f-b28254211437">
+        <Attribute dwd:design-time-name="368825d7-3c72-4333-a2e8-4161ce142a2d">
           <AttributeID>Supplier</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="9775e990-7054-4ea9-8b7e-519e16cee79a">
+        <Attribute dwd:design-time-name="91a2a22a-423b-432b-95d0-671289ae6cf0">
           <AttributeID>Nation</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="5c72d150-9393-4790-bc56-ed0292fab0d7">
+        <Attribute dwd:design-time-name="b8a3b6c5-6871-4cc8-8a1c-c4b49424ddac">
           <AttributeID>Region</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="e342522a-495f-4174-b254-feeecd9c3ddf">
+        <Hierarchy dwd:design-time-name="82f9c24e-04b5-48b4-81a0-89c9dd1e9fd5">
           <HierarchyID>Hierarchy</HierarchyID>
         </Hierarchy>
       </Hierarchies>
     </Dimension>
-    <Dimension dwd:design-time-name="c4b1d5a5-0a64-48fd-b18f-4d927dcf7729">
+    <Dimension dwd:design-time-name="e2bfbbc8-9071-42bf-b106-2af3e5adc0f2">
       <ID>Dim Client</ID>
       <Name>Dim Client</Name>
       <DimensionID>Dim Client</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="7feb028b-36fb-497d-9d91-b53ca542779e">
+        <Attribute dwd:design-time-name="90bacb0c-8966-46de-b7b5-43f7987afe82">
           <AttributeID>Client Key</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="6c9355fb-d433-4196-a8fe-ee179aed54be">
+        <Attribute dwd:design-time-name="7dcb472b-ce29-4ae1-8707-e68b6a0ff038">
           <AttributeID>Customer</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="f99a2dcd-e40d-46e9-99ed-6628b4d9d129">
+        <Attribute dwd:design-time-name="478e9982-46a3-4ef4-a27a-2315de60e3ed">
           <AttributeID>Segment</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="245dc0c9-df96-45bb-b638-67eaaa0215ee">
+        <Attribute dwd:design-time-name="0e13fbf9-ff99-4e81-ad85-7574fc41390a">
           <AttributeID>Nation</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="ca89bed8-e55f-4a7a-8c5d-3a58ca0d46f7">
+        <Attribute dwd:design-time-name="d3918241-4ba3-49bd-863e-a9ce93d4f130">
           <AttributeID>Region</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="47d4c122-2814-4107-8560-81865813dfa6">
+        <Hierarchy dwd:design-time-name="3cf0cccb-4a7d-4f25-bcb7-60811863e455">
           <HierarchyID>Hierarchy</HierarchyID>
         </Hierarchy>
       </Hierarchies>
     </Dimension>
   </Dimensions>
   <MeasureGroups>
-    <MeasureGroup dwd:design-time-name="1f7f9d28-f7e7-4609-8cd9-248d788fb994">
+    <MeasureGroup dwd:design-time-name="541840fb-3023-4f9c-b0fc-97317b37579a">
       <ID>Fact Sales</ID>
       <Name>Fact Sales</Name>
       <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -311,45 +311,45 @@
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
       <State>Unprocessed</State>
       <Measures>
-        <Measure dwd:design-time-name="cc5434e3-b634-460b-bf3d-e265a1640e4e">
+        <Measure dwd:design-time-name="78383582-0286-4ac9-9682-4cb267ea6a8b">
           <ID>Quantity Sold</ID>
           <Name>Quantity Sold</Name>
-          <Source dwd:design-time-name="2e981b16-e778-4fc6-a2c3-78eb568817cf">
+          <Source dwd:design-time-name="d069d213-ad20-48d2-8bc9-b68d75ba1ba5">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="df040de6-4ee4-432a-9eda-49b5e1d579a1">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="3eabe0de-211b-4e5a-8258-5caa61e306b2">
               <TableID>dbo_FactSales</TableID>
               <ColumnID>QuantitySold</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="3378b1d3-b5d4-49aa-b947-a1e8af139d3e">
+        <Measure dwd:design-time-name="b99a6cb6-8872-4101-a695-6a68231b3e76">
           <ID>Sales Value</ID>
           <Name>Sales Value</Name>
-          <Source dwd:design-time-name="355a594a-8681-43c7-91bf-d6610df9278f">
+          <Source dwd:design-time-name="e218b068-a991-42b1-bdb4-361bcbcdb620">
             <DataType>Double</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="f53ec80b-812c-4c19-bda6-2d9883fd9200">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="a27e582d-7c46-42bb-b98c-74aca354a433">
               <TableID>dbo_FactSales</TableID>
               <ColumnID>SalesValue</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="1b6009c2-68a6-41aa-9265-016dc256afb7">
+        <Measure dwd:design-time-name="b121d0c8-f1e9-4482-9214-6958f65b5e12">
           <ID>Discount</ID>
           <Name>Discount</Name>
-          <Source dwd:design-time-name="55d396e7-4014-4110-9c1a-12ffbd1933d6">
+          <Source dwd:design-time-name="103d351c-31c4-47ea-8508-d77a1de19a20">
             <DataType>Double</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="7d5c4507-3a43-49ab-9403-5a85b7fcddd6">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="34377d56-6c40-4e0b-bf81-9fd87cfca22f">
               <TableID>dbo_FactSales</TableID>
               <ColumnID>Discount</ColumnID>
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="b38d6bbd-22aa-49a6-bc60-12c990ecbbff">
+        <Measure dwd:design-time-name="b0f43776-59de-4e48-b8dd-70c59d3bdf72">
           <ID>Cost</ID>
           <Name>Cost</Name>
-          <Source dwd:design-time-name="73f155f4-62fe-4842-a9ea-eb0b52de8177">
+          <Source dwd:design-time-name="813a754b-6f1a-44e9-946c-071dd719ad6b">
             <DataType>Double</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="12174377-54be-4f8e-9ee7-c3709244fc1a">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="75aad4b1-83c6-488c-b03e-71ec7d2d4054">
               <TableID>dbo_FactSales</TableID>
               <ColumnID>Cost</ColumnID>
             </Source>
@@ -359,15 +359,15 @@
       <StorageMode>Molap</StorageMode>
       <ProcessingMode>Regular</ProcessingMode>
       <Dimensions>
-        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="1de11de4-51af-4ef8-b72b-a414b5d4dd21">
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="559229d3-d7e4-4cf7-b4ce-e9a2d6945d01">
           <CubeDimensionID>Fact Sales</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="368ad363-90af-48ff-97a5-be27a039805a">
+            <Attribute dwd:design-time-name="3581f842-f021-4bf4-bc69-d756faa3f01e">
               <AttributeID>Sales Key</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="f63c6a21-e4e1-4088-8e47-3a1e8eaf965d">
+                <KeyColumn dwd:design-time-name="2bb545ee-1465-4d96-8c09-5bc9a5a686fa">
                   <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="eb1c43fd-0e67-4d92-8e13-d6612916593a">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="87a5b780-7dbf-4255-8178-c8a946072b50">
                     <TableID>dbo_FactSales</TableID>
                     <ColumnID>SalesKey</ColumnID>
                   </Source>
@@ -377,15 +377,15 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="73a6650c-11a8-4d28-9fb8-5c29c2afa6c3">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c66e9f93-e9fd-4335-80b5-d0ab85e11327">
           <CubeDimensionID>Dim Date</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="15255849-d929-460e-aeae-d2bac0439399">
+            <Attribute dwd:design-time-name="ca8a547f-8208-43b4-a57b-c3ae9d507ecc">
               <AttributeID>Date Key</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="731b652c-eaf7-45b3-8ab9-f8596772c730">
+                <KeyColumn dwd:design-time-name="fc965fb2-9e33-4950-8549-3d94c2cad895">
                   <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="542fafa0-0732-4ab5-b247-ae6d4d37d8ee">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e3d2e134-7407-4b7b-884d-55654fa3c0f6">
                     <TableID>dbo_FactSales</TableID>
                     <ColumnID>DateKey</ColumnID>
                   </Source>
@@ -395,15 +395,15 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a6bf3699-a123-414a-9dbd-3400dc9f6e60">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1feb19d1-24c0-4469-a5c1-da54af84cede">
           <CubeDimensionID>Dim Product</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="34365ee3-b5cb-4d4f-80ff-09cdc50d7c50">
+            <Attribute dwd:design-time-name="d5c0dc8d-569d-47e8-af0a-abc6284e055a">
               <AttributeID>Product Key</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="1535d9ad-112a-463d-afa0-cb8c1a4caa78">
+                <KeyColumn dwd:design-time-name="c733c901-e08e-45e5-bfc9-b938c8ca3d37">
                   <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c80904f4-8a01-4b3d-8333-8b4fb4137ed3">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="49ac6414-6b30-492e-95f4-49f005a9d247">
                     <TableID>dbo_FactSales</TableID>
                     <ColumnID>ProductKey</ColumnID>
                   </Source>
@@ -413,15 +413,15 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1b876976-704c-4fe0-a2b1-fb45c4d95e29">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f7d13871-81db-486b-96ff-002cfbc523dc">
           <CubeDimensionID>Dim Supplier</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="b071d949-c4ea-4c81-b71f-529aefe42531">
+            <Attribute dwd:design-time-name="1756ad99-9b04-4268-983f-06e86a5399f9">
               <AttributeID>Supplier Key</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="896da153-f6a8-48d9-a5f1-9b328d62110b">
+                <KeyColumn dwd:design-time-name="52e93952-4fab-4ba5-bb1c-fc0f356e5252">
                   <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="25bf8031-a1ed-4dda-a950-51d00e2b857e">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="db6c9ff5-16a9-46d5-bb04-270f2e2944f3">
                     <TableID>dbo_FactSales</TableID>
                     <ColumnID>SupplierKey</ColumnID>
                   </Source>
@@ -431,15 +431,15 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="aa9b2c76-067a-4fa4-8195-5d2c3a9627b0">
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="587bfa12-5f44-48e5-840c-619ee346bf7f">
           <CubeDimensionID>Dim Client</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="2611bb1a-ef5d-416a-ad3d-4aba9ddd223c">
+            <Attribute dwd:design-time-name="ebaadf7f-bb39-46b4-8119-d0b32745a5d4">
               <AttributeID>Client Key</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="ac53d46d-6b01-4a07-821e-d6df6aedde0a">
+                <KeyColumn dwd:design-time-name="0282237d-8d10-485e-a8b2-958f1ed1058c">
                   <DataType>Integer</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2266462d-f076-4373-80eb-7a50dc97618e">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="76118458-bafd-4cba-bc82-75370452dd2c">
                     <TableID>dbo_FactSales</TableID>
                     <ColumnID>ClientKey</ColumnID>
                   </Source>
@@ -453,11 +453,11 @@
       <Partitions />
     </MeasureGroup>
   </MeasureGroups>
-  <Source dwd:design-time-name="d2224d3f-03c3-4bd3-bb7e-d413fb631569">
+  <Source dwd:design-time-name="c9bb76c6-7c5d-4cea-a16a-e46dee37cfd7">
     <DataSourceViewID>Tpch DW</DataSourceViewID>
   </Source>
   <MdxScripts>
-    <MdxScript dwd:design-time-name="4aea15d7-a843-45ba-98d9-1784b47bb281">
+    <MdxScript dwd:design-time-name="f4d097df-d78b-4794-aca4-6cea2b6263ff">
       <ID>MdxScript</ID>
       <Name>MdxScript</Name>
       <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -469,23 +469,23 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;   
+CALCULATE;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Net Revenue]
  AS [Measures].[Sales Value] - [Measures].[Discount], 
 FORMAT_STRING = "Currency", 
-VISIBLE = 1  ;   
+VISIBLE = 1  ;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Profit]
  AS [Measures].[Net Revenue] - [Measures].[Cost], 
 FORMAT_STRING = "Currency", 
-VISIBLE = 1;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Margin]
  AS [Measures].[Profit] / [Measures].[Net Revenue], 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Gross Revenue]
  AS [Measures].[Sales Value], 
 FORMAT_STRING = "Currency", 
-VISIBLE = 1  ; </Text>
+VISIBLE = 1; </Text>
         </Command>
       </Commands>
     </MdxScript>

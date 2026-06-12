@@ -7,10 +7,6 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="User ID=sa;Initial Catalog=tpchDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-TPCH-SSIS-{2F9625EC-238B-4062-9C7B-542D2907CB41}.sa2;">
-      <DTS:Password
-        DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFebjpZgWckaxry4Hr8vuCwAAAAACAAAAAAAQZgAAAAEAACAAAAALfxsupjZTCvXEmszNrD+yibvUI67HYwJ6Q/2K5jdWTwAAAAAOgAAAAAIAACAAAAD7joQ0KC/uYqKT3L5vlM5Cpt4UXSmuVPN/CUN7Y5YtSIAAAAA6kkVuLJUlZhFuJydeVZoeKM2mq8BHG7ia+OFDIXTlLFe8UxllZCwJG73AfdTN4/dUZJwXqsPtYc+zNCIYQRMDpsyt++PkVVuGg2IUp8GuThesnI7cBXziF6VaJfCfw7JB4useIQ6hPeCjRfjOYg02A6bGu8XKxhOa85xXcksDQEAAAACv9OjadtfDT1glILT+XkMvbEaNN4zj5rVSnvvdrUjTmARF8TYGfR5+JwjhkdgbUKSDi160oolBA3IuF6v93eBA</DTS:Password>
-    </DTS:ConnectionManager>
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=tpchDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-TPCH-SSIS-{2F9625EC-238B-4062-9C7B-542D2907CB41}.sa2;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
